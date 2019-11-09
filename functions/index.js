@@ -1,5 +1,6 @@
 const functions = require("firebase-functions");
 const express = require("express");
+const cors = require("cors");
 
 const { db } = require("./utils/admin");
 
@@ -24,6 +25,8 @@ const {
 } = require("./handlers/screams");
 
 const app = express();
+
+app.use(cors("*"));
 
 // Auth Routes...
 app.route("/users/login").post(loginUser);
